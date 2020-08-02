@@ -1,11 +1,10 @@
 #!/usr/bin/env python
 """
-api tests
+Api tests
 
 these tests use the requests package however similar requests can be made with curl
 
 e.g.
-
 data = '{"key":"value"}'
 curl -X POST -H "Content-Type: application/json" -d "%s" http://localhost:8080/predict'%(data)
 """
@@ -29,7 +28,7 @@ except:
 ## test class for the main window function
 class ApiTest(unittest.TestCase):
     """
-    test the essential functionality
+    Test the essential API functionality
     """
 
     @unittest.skipUnless(server_available,"local server is not running")

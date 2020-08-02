@@ -1,25 +1,19 @@
 #!/usr/bin/env python
-"""
-model tests
-"""
 
 import os
 import csv
 import unittest
-from ast import literal_eval
 import pandas as pd
-
-## import model specific functions and variables
 from logger import update_train_log, update_predict_log
 
 class LoggerTest(unittest.TestCase):
     """
-    test the essential functionality
+    Test the essential logger functionality
     """
         
     def test_log_creation(self):
         """
-        ensure log file is created
+        Ensure log file is created
         """
 
         log_file = os.path.join("logs","train-test.log")
@@ -39,7 +33,7 @@ class LoggerTest(unittest.TestCase):
         
     def test_log_training(self):
         """
-        ensure that content can be retrieved from log file
+        Ensure that content can be retrieved from log file
         """
 
         log_file = os.path.join("logs","train-test.log")
@@ -59,7 +53,7 @@ class LoggerTest(unittest.TestCase):
 
     def test_log_prediction(self):
         """
-        ensure that content can be retrieved from log file
+        Ensure that content can be retrieved from log file
         """
 
         log_file = os.path.join("logs","predict-test.log")
