@@ -10,7 +10,7 @@ from sklearn.metrics import mean_squared_error
 from sklearn.preprocessing import StandardScaler, OneHotEncoder
 from sklearn.pipeline import Pipeline
 
-from logger import update_predict_log, update_train_log
+#from logger import update_predict_log, update_train_log
 from cslib import fetch_ts, engineer_features
 
 ## model specific variables (iterate the version and note with each change)
@@ -79,8 +79,8 @@ def _model_train(df,tag,test=False):
     runtime = "%03d:%02d:%02d"%(h, m, s)
 
     ## update log
-    update_train_log(tag,(str(dates[0]),str(dates[-1])),{'rmse':eval_rmse},runtime,
-                     MODEL_VERSION, MODEL_VERSION_NOTE,test=True)
+    """ update_train_log(tag,(str(dates[0]),str(dates[-1])),{'rmse':eval_rmse},runtime,
+                     MODEL_VERSION, MODEL_VERSION_NOTE,test=True) """
   
 
 def model_train(data_dir,test=False):
@@ -100,16 +100,16 @@ def model_train(data_dir,test=False):
         
     ## fetch time-series formatted data
     ts_data = fetch_ts(data_dir)
-
+    #ts_data = pd.read_csv("./data/cs_train/ts_data")
     ## train a different model for each data sets
     for country,df in ts_data.items():
         
-        if test and country not in ['all','united_kingdom']:
-            continue
+        #if test and country not in ['all','united_kingdom']:
+        #    continue
         
         _model_train(df,country,test=test)
     
-def model_load(prefix='sl',data_dir=None,training=True):
+def model_load(prefix='test',data_dir=None,training=True):
     """
     example funtion to load model
     
@@ -117,9 +117,9 @@ def model_load(prefix='sl',data_dir=None,training=True):
     """
 
     if not data_dir:
-        data_dir = os.path.join("..","data","cs-train")
+        data_dir = os.path.join("data","cs-train")
     
-    models = [f for f in os.listdir(os.path.join(".","models")) if re.search("sl",f)]
+    models = [f for f in os.listdir(os.path.join(".","models")) if re.search("test",f)]
 
     if len(models) == 0:
         raise Exception("Models with prefix '{}' cannot be found did you train?".format(prefix))
@@ -190,8 +190,8 @@ def model_predict(country,year,month,day,all_models=None,test=False):
     runtime = "%03d:%02d:%02d"%(h, m, s)
 
     ## update predict log
-    update_predict_log(country,y_pred,y_proba,target_date,
-                       runtime, MODEL_VERSION, test=test)
+    """ update_predict_log(country,y_pred,y_proba,target_date,
+                       runtime, MODEL_VERSION, test=test) """
     
     return({'y_pred':y_pred,'y_proba':y_proba})
 
@@ -202,9 +202,9 @@ if __name__ == "__main__":
     """
 
     ## train the model
-    print("TRAINING MODELS")
-    data_dir = os.path.join("..","data","cs-train")
-    model_train(data_dir,test=True)
+    #print("TRAINING MODELS")
+    #data_dir = os.path.join("data","cs_train")
+    #model_train(data_dir,test=True)
 
     ## load the model
     print("LOADING MODELS")

@@ -116,8 +116,8 @@ def fetch_ts(data_dir, clean=False):
     use clean=True when you want to re-create the files
     """
 
-    ts_data_dir = os.path.join(data_dir,"ts-data")
-    
+    #ts_data_dir = os.path.join(data_dir,"ts_data")
+    ts_data_dir="./data/cs_train/data"
     if clean:
         shutil.rmtree(ts_data_dir)
     if not os.path.exists(ts_data_dir):
@@ -131,6 +131,7 @@ def fetch_ts(data_dir, clean=False):
     ## get original data
     print("... processing data for loading")
     df = fetch_data(data_dir)
+    print("...fetched data")
 
     ## find the top ten countries (wrt revenue)
     table = pd.pivot_table(df,index='country',values="price",aggfunc='sum')
@@ -222,7 +223,7 @@ def engineer_features(df,training=True):
 if __name__ == "__main__":
 
     run_start = time.time() 
-    data_dir = os.path.join("..","data","cs-train")
+    data_dir = os.path.join("cs_train")
     print("...fetching data")
 
     ts_all = fetch_ts(data_dir,clean=False)
