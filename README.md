@@ -3,25 +3,25 @@
 * Yes, in folder unittests -> ApiTests.py
 2. Are there unit tests for the model?
 * Yes, in folder unittests -> ModelTests.py
-Are there unit tests for the logging?
+3. Are there unit tests for the logging?
 * Yes, in folder unittests -> LoggerTests.py
-Can all of the unit tests be run with a single script and do all of the unit tests pass?
+4. Can all of the unit tests be run with a single script and do all of the unit tests pass?
 * Yes -> run_tests.py
-Is there a mechanism to monitor performance?
+5. Is there a mechanism to monitor performance?
 * Yes -> monitoring.py
-Was there an attempt to isolate the read/write unit tests from production models and logs?
+6. Was there an attempt to isolate the read/write unit tests from production models and logs?
 * Yes -> prophet_model.py & logger.py
-Does the API work as expected? For example, can you get predictions for a specific country as well as for all countries combined?
+7. Does the API work as expected? For example, can you get predictions for a specific country as well as for all countries combined?
 * Worked for me. I am happy to hear if you manage to break it.
-Does the data ingestion exists as a function or script to facilitate automation?
+8. Does the data ingestion exists as a function or script to facilitate automation?
 * script
-Were multiple models compared?
+9. Were multiple models compared?
 * Yes -> Model_validation.ipynb
-Did the EDA investigation use visualizations?
+10. Did the EDA investigation use visualizations?
 * Yes. -> EDA.ipynb
-Is everything containerized within a working Docker image?
+11. Is everything containerized within a working Docker image?
 * Yes -> Dockerfile
-Did they use a visualization to compare their model to the baseline model?
+12. Did they use a visualization to compare their model to the baseline model?
 * No.
 
 # IBM AI Enterprise Workflow Capstone
