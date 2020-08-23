@@ -45,7 +45,7 @@ And every once and a while if you want clean up you can
     ~$ docker system prune
 
 
-TO run the unittests
+To run the unittests
 -------------------
 
 Before running the unit tests launch the `app.py`.
@@ -63,7 +63,7 @@ To run all of the tests
 
     ~$ python run-tests.py
 
-TO run the container 
+To run the container 
 --------------------    
 
     ~$ docker run -p 4000:8080 prophet_app
